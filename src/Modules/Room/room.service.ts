@@ -15,7 +15,7 @@ const getRoom=async(id:string)=>{
 
 //2.1 gt all rooms.
 const getAllRooms=async()=>{
-    const result=await roomModel.find()
+    const result=await roomModel.find({isDeleted:false})
     return result
 }
 
@@ -30,6 +30,7 @@ const deleteSingleRoom=async(id:string)=>{
 const updateSingleRoom=async(id:string,payload:Partial<Troom>)=>{
     const result=await roomModel.findByIdAndUpdate(id,payload,{new:true})
     return result
+  
 }
 
 

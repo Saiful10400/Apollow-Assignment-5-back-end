@@ -13,8 +13,8 @@ type Tuser = keyof typeof userRole;
 const auth = (userRole: Tuser[]) => {
   return catchAsync(
     async (req: TRequest, res: Response, next: NextFunction) => {
-      const Unfilteredtoken = req.headers.authorization;
-      const token = Unfilteredtoken?.split(" ")[1];
+      const token = req.headers.authorization
+      
 
       // cheking if the token is available or not.
       if (!token)
@@ -22,10 +22,10 @@ const auth = (userRole: Tuser[]) => {
 
       // cheking if the token is valid
       const decoded = jwt.verify(
-        token as string,
+        token as string, 
         config.jwtSecret as string
       ) as JwtPayload;
-      if (!decoded?.id)
+      if (!decoded?.id) 
         throw new appError(httpStatus.UNAUTHORIZED, "You are not authorized!");
       const { id } = decoded;
 

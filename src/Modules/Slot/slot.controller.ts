@@ -76,6 +76,40 @@ const getAllAvailableSlot=catchAsync(async(req: Request, res: Response)=>{
   
 })
 
+//3. delete a slot
+const deleteASlot=catchAsync(async(req: Request, res: Response)=>{
+
+  const data=await slootsService.deleteASlot(req.params.id)
+
+ 
+    return sendResponse(res, {
+      data,
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Slot Deleted Successfully",
+    });
+
+  
+  
+})
+
+//4. update a slot.
+const updateASlot = catchAsync(async (req: Request, res: Response) => {
+
+  const data=await slootsService.updateASlot(req.params.id,req.body)
+
+  sendResponse(res, {
+    data,
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Slot updated successfully",
+  });
+});
+
+
+
+
+
 // export modules.
-const slootsController = { CreateSomeSlots,getAllAvailableSlot };
+const slootsController = { CreateSomeSlots,getAllAvailableSlot,deleteASlot,updateASlot };
 export default slootsController;

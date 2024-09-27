@@ -4,17 +4,17 @@ const slotSchema = new mongoose.Schema({
   room: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref:"room"
-    
+    ref: "room",
   },
   date: {
     type: String,
     required: true,
     validate: {
-      validator: function (v:string) {
+      validator: function (v: string) {
         return !isNaN(Date.parse(v));
       },
-      message: (props:{value:string}) => `${props.value} is not a valid date!`,
+      message: (props: { value: string }) =>
+        `${props.value} is not a valid date!`,
     },
   },
   startTime: {
@@ -30,10 +30,14 @@ const slotSchema = new mongoose.Schema({
   isBooked: {
     type: Boolean,
     default: false,
-  }
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
 });
 
+const slotmodel = model("slot", slotSchema);
 
-const slotmodel=model("slot",slotSchema)
-
-export default slotmodel
+export default slotmodel;
+ 

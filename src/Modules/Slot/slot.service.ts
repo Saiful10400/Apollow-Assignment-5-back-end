@@ -1,4 +1,3 @@
-
 import mongoose, { Types } from "mongoose";
 import getDateObjFromTime from "../../Utility/getDateObjFromTime";
 import getHourMinutFromMiliSec from "../../Utility/getHourMinutFromMiliSec";
@@ -23,11 +22,10 @@ const createSomeSloots = async (payload: Tslot) => {
     i < endTimeMils || i - aHour < endTimeMils;
     i += aHour
   ) {
-
     if (i === endTimeMils) {
       break;
     }
-    
+
     if (i + aHour > endTimeMils) {
       const slootObj = {
         room: payload.room,
@@ -38,8 +36,6 @@ const createSomeSloots = async (payload: Tslot) => {
       DataArray.push(slootObj);
       break;
     }
-
-   
 
     const slootObj = {
       room: payload.room,
@@ -56,24 +52,54 @@ const createSomeSloots = async (payload: Tslot) => {
 
 //2. get all available sloots.
 const getAllAvailableSlots = async () => {
-  const result = await slotmodel.find({ isBooked: false }).populate("room")
+  const result = await slotmodel
+    .find({ isBooked: false, isDeleted: false })
+    .populate("room");
   return result;
 };
 
-// 2. get all available sloots.
-const getAllAvailableSlotsWithDateAndId = async ({date ,id}:{date:string , id: string,}) => {
-const room:Types.ObjectId=new mongoose.Types.ObjectId(id)
-console.log(date,id)
-  const result = await slotmodel.find({room,date:date,isBooked: false}).populate("room")
-  
-  return result
+// 3. get all available sloots.
+const getAllAvailableSlotsWithDateAndId = async ({
+  date,
+  id,
+}: {
+  date: string;
+  id: string;
+}) => {
+  const room: Types.ObjectId = new mongoose.Types.ObjectId(id);
+  console.log(date, id);
+  const result = await slotmodel
+    .find({ room, date: date, isBooked: false, isDeleted: false })
+    .populate("room");
+
+  return result;
 };
 
+//4.delete a slot
+const deleteASlot = async (payload) => {
+  const result = await slotmodel.findByIdAndUpdate(payload, {
+    isDeleted: true,
+  });
+  return result;
+};
+
+//5. update a slot.
+//4.delete a slot
+const updateASlot = async (id:string,payload) => {
+const data=new mongoose.Types.ObjectId(payload.room)
+const {room,...rest}=payload
+
+ const result=await slotmodel.findByIdAndUpdate(id,{...rest,room:data})
+  return result;
+};
+  
 // export modules.
 const slootsService = {
   createSomeSloots,
   getAllAvailableSlotsWithDateAndId,
   getAllAvailableSlots,
+  deleteASlot,
+  updateASlot
 };
 export default slootsService;
 

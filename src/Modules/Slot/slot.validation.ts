@@ -17,7 +17,21 @@ const create= z.object({
     }) 
 });
 
+const update = z.object({
+    room: z.string().regex(objectIdRegex, { message: "Invalid MongoDB objectId." }).optional(),
+    date: z.string()
+        .refine((val) => !isNaN(Date.parse(val)), { message: "Invalid date format" })
+        .optional(),
+    startTime: z.string()
+        .regex(/^([01]\d|2[0-3]):([0-5]\d)$/, { message: "Invalid time format, should be HH:MM" })
+        .optional(),
+    endTime: z.string()
+        .regex(/^([01]\d|2[0-3]):([0-5]\d)$/, { message: "Invalid time format, should be HH:MM" })
+        .optional()
+});
 
-const slotValidationSchema={create}
+
+
+const slotValidationSchema={create,update}
 
 export default slotValidationSchema

@@ -33,7 +33,7 @@ const getAllRooms=catchAsync(async(req:Request,res:Response)=>{
     const data=await roomService.getAllRooms()
     if(data.length===0){
         const Empty:string[]=[]
-      return  sendResponse(res,{data:Empty,success:false,statusCode:httpStatus.NOT_FOUND,message:"No Data Found"})
+      return  sendResponse(res,{data:Empty,success:false,statusCode:httpStatus.OK,message:"No Data Found"})
     }
     const message="Rooms retrieved successfully"
     sendResponse(res,{data,success:true,statusCode:httpStatus.OK,message})

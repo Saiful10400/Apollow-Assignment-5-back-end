@@ -37,6 +37,7 @@ const signup = async (payload: Tuser) => {
 //2. login.
 const login = async (payload: TuserLogin) => {
   const data = await signupModel.findOne(payload);
+ 
   if (!data)
     throw new appError(httpStatus.UNAUTHORIZED, "Incorrect email or password!");
 data.password=undefined
@@ -54,9 +55,18 @@ const accessToken = jwt.sign(jwtPayload, config.jwtSecret as string, {
   return {data,accessToken};
 };
 
+
+//2. getucrrentuser.
+const getCurrentUser = async (payload:string) => {
+  const result=await signupModel.findById(payload)
+  return result
+
+};
+
 const AuthenticationService = {
   signup,
   login,
+  getCurrentUser
 };
 
 export default AuthenticationService;

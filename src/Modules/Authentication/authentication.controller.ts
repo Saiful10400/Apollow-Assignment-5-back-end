@@ -31,6 +31,13 @@ const login = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthenticationService.login(req.body);
   // const token = req.headers.authorization;
 const{data,accessToken}=result
+
+ res.cookie("accessToken", accessToken, {
+    secure: false,
+    httpOnly: true,
+    sameSite: "none",
+    maxAge: 1000 * 60 * 60 * 24 * 365,
+  });
   sendResponse(res, {
     data,
     statusCode: httpStatus.OK,
@@ -40,10 +47,24 @@ const{data,accessToken}=result
   });
 });
 
+//3. login a user.
+const getCurrentUser = catchAsync(async (req: Request, res: Response) => {
+  const result = await AuthenticationService.getCurrentUser(req.userId);
+ 
+  sendResponse(res, {
+    data:result,
+    statusCode: httpStatus.OK,
+    message: "Current logged in user id retrieved successfully",
+    success: true,
+    
+  });
+});
+
 //  exporting the modules.
 const authenticationController = {
   signup,
   login,
+  getCurrentUser
 };
 
 export default authenticationController;

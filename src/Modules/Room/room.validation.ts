@@ -6,7 +6,8 @@ const createSingleroom=z.object({
     floorNo: z.number().int().min(1, { message: 'Floor number must be a positive integer' }),
     capacity: z.number().int().min(1, { message: 'Capacity must be a positive integer' }),
     pricePerSlot: z.number().int().min(1, { message: 'Price per slot must be a positive integer' }),
-    amenities: z.array(z.string()).min(1, { message: 'Amenities list must not be empty' })
+    amenities: z.array(z.string()).min(1, { message: 'Amenities list must not be empty' }),
+    roomImages: z.array(z.string()).min(1, { message: 'room images list must not be empty' })
 })
 
 const updateSingleroom=z.object({
@@ -15,7 +16,8 @@ const updateSingleroom=z.object({
     floorNo: z.number().int().min(1, { message: 'Floor number must be a positive integer' }).optional(),
     capacity: z.number().int().min(1, { message: 'Capacity must be a positive integer' }).optional(),
     pricePerSlot: z.number().int().min(1, { message: 'Price per slot must be a positive integer' }).optional(),
-    amenities: z.array(z.string()).min(1, { message: 'Amenities list must not be empty' }).optional()
+    amenities: z.array(z.string()).min(1, { message: 'Amenities list must not be empty' }).optional(),
+    roomImages: z.array(z.string()).min(1, { message: 'rom image list must not be empty' }).optional(),
 })
 
 

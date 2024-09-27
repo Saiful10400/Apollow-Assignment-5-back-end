@@ -6,6 +6,10 @@ const signupSchema = new Schema<Tuser>({
     type: String,
     required: true,
   },
+  img: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -30,7 +34,7 @@ const signupSchema = new Schema<Tuser>({
 });
 
 signupSchema.post("save", function (docs, next) {
-  this.password = undefined; 
+  this.password = undefined!; 
   next();
 });
 

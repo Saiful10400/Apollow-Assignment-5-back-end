@@ -2,6 +2,7 @@ import { Model } from "mongoose"
 
 export interface Tuser{
     name: string,
+    img:string,
     email: string,
     password:string,
     phone:string,

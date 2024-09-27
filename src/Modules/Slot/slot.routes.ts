@@ -11,9 +11,14 @@ const router=Router()
 router.post("/",auth([userRole.admin]),zodValidation(slotValidationSchema.create),slootsController.CreateSomeSlots)
 
 
-//1.Get available sloots.
+//2.Get available sloots.
 router.get("/availability",slootsController.getAllAvailableSlot)
 
+//3.Delete a slot.
+router.delete("/:id",slootsController.deleteASlot)
+
+//4. Update a slot.
+router.put("/:id",zodValidation(slotValidationSchema.update),slootsController.updateASlot)
 
 
 // export modules.

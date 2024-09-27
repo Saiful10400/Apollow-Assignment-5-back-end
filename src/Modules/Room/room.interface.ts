@@ -5,4 +5,5 @@ export interface Troom{
         "capacity": number,
         "pricePerSlot": number,
         "amenities"?: string[]
+        "roomImages"?: string[]
 }
