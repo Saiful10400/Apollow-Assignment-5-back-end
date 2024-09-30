@@ -9,10 +9,7 @@ const routes=Router()
 
 
 const moduleRoutes=[
-    {
-        path:"/my-bookings",
-        route:MyBookingroutes
-    },
+   
     {
         path:"/auth",
         route:authenticationRoutes
@@ -28,8 +25,8 @@ const moduleRoutes=[
     }
     ,
     {
-        path:"/bookings",
-        route:bookingRoutes
+        path:"/booking",
+        route:MyBookingroutes
     }
 ]
 
