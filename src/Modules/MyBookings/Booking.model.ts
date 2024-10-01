@@ -17,16 +17,27 @@ const bookingSchema: Schema = new Schema({
   },
   slot: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Slot',  // Reference to the Slot model
+    ref: 'slot',  // Reference to the Slot model
     required: true  // Ensures slot is required
   },
   isDeleted: {
     type: Boolean,
     default: false  // Defaults to false if not provided
-  },
+  }
+  ,
   isConfirm: {
     type: Boolean,
     default: false  // Defaults to false if not provided
+  }
+  ,
+  isPaid: {
+    type: Boolean,
+    default: false  // Defaults to false if not provided
+  }
+  ,
+  tnxId: {
+    type: String,
+    default: null  // Defaults to false if not provided
   }
 });
 

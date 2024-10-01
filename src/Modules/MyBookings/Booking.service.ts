@@ -7,6 +7,13 @@ const createOne=async(paylod:Tbooking)=>{
     return result
 }
 
+//2. get a booking.
+const getAbooking=async(id:string)=>{
+
+    const result=await MybookingModel.findById(id).populate({path:"slot",populate:{path:"room"}}).populate("user")
+    return result
+}
+
 
 //2. get a new booking.
 // const createOne=async(paylod:Tbooking)=>{
@@ -24,5 +31,5 @@ const createOne=async(paylod:Tbooking)=>{
 
 
 
-const myBookingService={createOne}
+const myBookingService={createOne,getAbooking}
 export default myBookingService

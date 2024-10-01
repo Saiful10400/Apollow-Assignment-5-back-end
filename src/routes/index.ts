@@ -4,6 +4,7 @@ import roomRoutes from "../Modules/Room/room.routes"
 import slootsRoutes from "../Modules/Slot/slot.routes"
 import bookingRoutes from "../Modules/Booking/booking.routes"
 import MyBookingroutes from "../Modules/MyBookings/myBookings.routes"
+import paymentRoute from "../Modules/Payment/payment.routes"
 
 const routes=Router()
 
@@ -27,6 +28,11 @@ const moduleRoutes=[
     {
         path:"/booking",
         route:MyBookingroutes
+    }
+    ,
+    {
+        path:"/pay",
+        route:paymentRoute
     }
 ]
 

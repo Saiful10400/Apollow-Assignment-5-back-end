@@ -6,7 +6,7 @@ import { signupModel } from "./authentication.model";
 import jwt from "jsonwebtoken";
 // 1. signup.
 const signup = async (payload: Tuser) => {
-  // console.log(payload,"this is data payload...")
+
 
   // let's check is the same user is exixt or not.
   const isUserExist = await signupModel.findOne({ email: payload.email });

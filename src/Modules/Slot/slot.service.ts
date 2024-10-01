@@ -10,7 +10,7 @@ const createSomeSloots = async (payload: Tslot) => {
   const endTimeObj = getDateObjFromTime(payload.endTime);
   const startTimeMils = startTimeObj.getTime();
   const endTimeMils = endTimeObj.getTime();
-  //    console.log(getHourMinutFromMiliSec(startTimeMils),getHourMinutFromMiliSec(endTimeMils))
+
 
   const DataArray = [];
 
