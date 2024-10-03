@@ -39,6 +39,11 @@ const bookingSchema: Schema = new Schema({
     type: String,
     default: null  // Defaults to false if not provided
   }
+  ,
+  isFailed: {
+    type: Boolean,
+    default: false  // Defaults to false if not provided
+  }
 });
 
 // Create and export the model

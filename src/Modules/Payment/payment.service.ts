@@ -10,10 +10,16 @@ const paywithBookingId=async(payload)=>{
 
 //2. update a pyment status.
 const updateAbookingPaymentStatus=async(id,tnxId)=>{
-    const result=await MybookingModel.findByIdAndUpdate(id,{tnxId,isPaid:true})
+    const result=await MybookingModel.findByIdAndUpdate(id,{tnxId,isPaid:true,isFailed:false})
     return result
 }
 
-const paymentservice={paywithBookingId,updateAbookingPaymentStatus}
+//3. update failed status.
+const updateFailedStatus=async(id)=>{
+    const result=await MybookingModel.findByIdAndUpdate(id,{isFailed:true})
+    return result
+}
+
+const paymentservice={paywithBookingId,updateAbookingPaymentStatus,updateFailedStatus}
 
 export default paymentservice   

@@ -5,14 +5,23 @@ import zodValidation from "../../MiddleWare/zodValidation";
 import bookingValidation from "./Booking.validation";
 import mybookingcontroller from "./Booking.controller";
 
-const router=Router()
+const router = Router();
 
 //1. create a user all Bookings
-router.post("/",auth([userRole.admin,userRole.user]),zodValidation(bookingValidation.create),mybookingcontroller.create)
+router.post(
+  "/",
+  auth([userRole.admin, userRole.user]),
+  zodValidation(bookingValidation.create),
+  mybookingcontroller.create
+);
 
-//1. get a user booking
-router.get("/:id",mybookingcontroller.getOne)
 
-const MyBookingroutes=router
+//2. get a user booking
+router.get("/:id", mybookingcontroller.getOne);
 
-export default MyBookingroutes
+//3. get a user all booking
+router.get("/users-all/:id", mybookingcontroller.userAllBooking);
+
+const MyBookingroutes = router;
+
+export default MyBookingroutes;

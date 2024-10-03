@@ -17,9 +17,9 @@ const getPaymentUrl = async (user,room,bookngId) => {
     amount: room.pricePerSlot,
     tran_id: transectionId,
     currency: "USD",
-    success_url: `http://localhost:8000/api/pay/status/${bookngId}?transectonId=${transectionId}`,
-    fail_url: "https://example.com/fail.php",
-    cancel_url: "https://example.com/cancel.php",
+    success_url: `${process.env.BACK_END_URL}/api/pay/status/${bookngId}?transectonId=${transectionId}`,
+    fail_url: `${process.env.BACK_END_URL}/api/pay/status/${bookngId}?transectonId=${transectionId}`,
+    cancel_url: process.env.FRONT_END_URL,
     desc: "Lend Money",
     type: "json",
   };
