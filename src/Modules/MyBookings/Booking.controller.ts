@@ -37,5 +37,38 @@ const userAllBooking=catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const mybookingcontroller = { create, getOne, userAllBooking};
+//4. get one by id
+const getAllForAdminDashboard = catchAsync(async (req: Request, res: Response) => {
+  const data = await myBookingService.getAllForAdminDashboard();
+  sendResponse(res, {
+    data,
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "All booking retrieved successfully",
+  });
+});
+//5. get one by id
+const deleteOne = catchAsync(async (req: Request, res: Response) => {
+  const data = await myBookingService.deleteOne(req.params.id);
+  sendResponse(res, {
+    data,
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Booking Deleted Successfully",
+  });
+});
+//6. confirm one by id
+const confirmOne = catchAsync(async (req: Request, res: Response) => {
+  const action=req.query.action
+  const data = await myBookingService.confirmOne(req.params.id,action as string);
+  sendResponse(res, {
+    data,
+    success: true,
+    statusCode: httpStatus.OK,
+    message: `Booking ${action==="Confirmed"?"Approved":"Rejected"} Successfully.`,
+  });
+});
+
+
+const mybookingcontroller = { create, getOne, userAllBooking,getAllForAdminDashboard,deleteOne,confirmOne};
 export default mybookingcontroller;

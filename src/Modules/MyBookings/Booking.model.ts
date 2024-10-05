@@ -28,6 +28,10 @@ const bookingSchema: Schema = new Schema({
   isConfirm: {
     type: Boolean,
     default: false  // Defaults to false if not provided
+  },
+  status:{
+    type:String,
+    default:"Pending"
   }
   ,
   isPaid: {

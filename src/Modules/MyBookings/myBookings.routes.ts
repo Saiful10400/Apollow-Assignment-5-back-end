@@ -15,12 +15,20 @@ router.post(
   mybookingcontroller.create
 );
 
-
 //2. get a user booking
 router.get("/:id", mybookingcontroller.getOne);
 
 //3. get a user all booking
 router.get("/users-all/:id", mybookingcontroller.userAllBooking);
+
+//4. get all booking for admin dashboard.
+router.get("/", mybookingcontroller.getAllForAdminDashboard);
+
+//5. delete One
+router.delete("/:id", mybookingcontroller.deleteOne);
+
+//6. confirm One
+router.put("/:id", mybookingcontroller.confirmOne);
 
 const MyBookingroutes = router;
 

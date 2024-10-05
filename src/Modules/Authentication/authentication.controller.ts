@@ -49,6 +49,7 @@ const{data,accessToken}=result
 
 //3. login a user.
 const getCurrentUser = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.userId)
   const result = await AuthenticationService.getCurrentUser(req.userId);
  
   sendResponse(res, {
@@ -59,7 +60,7 @@ const getCurrentUser = catchAsync(async (req: Request, res: Response) => {
     
   });
 });
-
+ 
 //  exporting the modules.
 const authenticationController = {
   signup,
