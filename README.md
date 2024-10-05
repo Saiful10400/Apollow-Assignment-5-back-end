@@ -1,92 +1,68 @@
+# Acowork
 
+**Live URL**: [https://apollow-assignment-5-back-end.vercel.app/](https://apollow-assignment-5-back-end.vercel.app/)
 
+## Overview
 
-## Description
+The **Acowork** backend is the core of the co-working space platform, powering features such as real-time room availability, booking management, and secure payments. Built with scalability and performance in mind, the backend handles all data processing, storage, and API communication to ensure a seamless experience for users. It manages room information, user authentication, and booking transactions, allowing users to efficiently book and manage workspaces.
 
-This is a simple Express app.You can use this app as your E-commerce application backend.let's talk about what you can do with this application.
+## Features
 
-1. You can create add new product to your database.
-2. You can update your existed product.
-3. You can search any product easyly.even if you don't write the full text.
-4. You can create a new order with this app.
-5. This app will manage the inventory product quantity and stock automatically.
-6. You can ratrieve all order or if you want you can get a single person order with this app.
+- **Real-time Availability:** Instantly check room availability and secure your space without delays.
+- **Instant Booking Confirmation:** Get immediate confirmation of your booking to avoid any last-minute hassles.
+- **Flexible Scheduling:** Book rooms by the hour, day, or for extended periods, tailored to your needs.
+- **Manage Bookings:** Easily view, update, reschedule, or cancel your bookings from a user-friendly dashboard.
+- **Secure Payments:** Enjoy safe and seamless transactions with multiple payment methods.
+- **Detailed Room Information:** View room features, amenities, and pricing before making a booking.
+- **24/7 Support:** Our customer service team is available around the clock to assist with any issues or questions.
 
-#### So if You are interested to use this app in your project follow the following steps to run this projet in your local computer or in your node environment.
+## Technology Used
 
-## Table of Contents
+- **Node.js:** JavaScript runtime for scalable server-side applications.
+- **Express.js:** Lightweight web framework for building the API.
+- **MongoDB:** NoSQL database for storing room, user, and booking data.
+- **Mongoose:** Object Data Modeling (ODM) library for MongoDB to manage database operations.
+- **JWT:** Secure authentication and authorization.
+- **Amar Pay:** For handling secure payments.
+- **TypeScript:** Ensures type safety across the backend codebase.
+  
+## How to Run the Project Locally
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Scripts](#scripts)
-- [License](#license)
+1. Clone the repository:
 
-## Installation
+    ```bash
+    git clone https://github.com/Saiful10400/Apollow-Assignment-5-back-end
+    ```
 
-To install and run this project, follow these steps:
+2. Navigate to the project directory:
 
-1. **Clone the repository:**
+    ```bash
+    cd your-repo-name
+    ```
 
-   ```sh
-   git clone https://github.com/Saiful10400/Apollo-Assignment-2.git
+3. Install dependencies:
 
-   cd Apollo-Assignment-2
-   
+    ```bash
+    npm install
+    ```
 
-2. **Install dependencies:**
+4. Start the development server:
 
-   Make sure you have [Node.js](https://nodejs.org/) installed. Then, run:
+    ```bash
+    npm run dev
+    ```
 
-   ```sh
-   npm install
+5. Open your browser and visit:
 
-3. **Set up environment variables:**
+    ```bash
+    http://localhost:5173
+    ```
 
-   Create a .env file in the root of your project and add **Port** and **DB_URL** as environment variable. For example:
+## How to Contribute
 
-   ```sh
-   PORT= <Port-number>
+1. Fork the repository.
+2. Create a new feature branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Create a pull request.
 
-   MONGODB_URL="mongodb+srv://<Admin>:<password>@cluster0.qe6izo7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-   
-
-## Usage
-
-To start the project, use the following command:
-
-```sh
-npm start
-
-
-This will start the server using \`ts-node-dev\` with the \`./src/server.ts\` file.
-
-## Scripts
-
-Here are some useful scripts you can run:
-
-- **Start the server:**
-
-
-  npm start
- 
-
-- **Build the project:**
-
-
-  npm run build
-
-
-- **Lint the code:**
-
-
-  npm run lint
- 
-
-- **Lint and fix the code:**
-
-
-  npm run lint:fix
- 
-````
-
- ### Thank you for reading this documentation.

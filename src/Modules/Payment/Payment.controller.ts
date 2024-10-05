@@ -53,7 +53,7 @@ const paymentStatus = catchAsync(async (req: Request, res: Response) => {
     const updateFailedStatus=await paymentservice.updateFailedStatus(bookingId)
   }
 
-  const absolutePath = path.join(__dirname, "../../View/index.html");
+  const absolutePath = path.join(__dirname, "../../../public/index.html");
   let file = fs.readFileSync(absolutePath, "utf-8");
   file = file.replace("{{message}}", bookingId);
   res.send(file);
